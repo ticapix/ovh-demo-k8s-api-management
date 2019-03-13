@@ -1,0 +1,7 @@
+kubectl
+helm
+venv3/*
+tiller
+kubeconfig.yaml
+.ipynb_checkpoints/
+config.yml
