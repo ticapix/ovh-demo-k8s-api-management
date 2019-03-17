@@ -1,0 +1,3 @@
+export KUBECONFIG=`pwd`/kubeconfig.yaml
+export PATH=`pwd`:$PATH
+export PATH=$PATH:$HOME/.linkerd2/bin
