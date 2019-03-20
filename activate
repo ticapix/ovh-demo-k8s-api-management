@@ -1,3 +1,4 @@
 export KUBECONFIG=`pwd`/kubeconfig.yaml
-export PATH=`pwd`:$PATH
+export PATH=$PATH:`pwd`
 export PATH=$PATH:$HOME/.linkerd2/bin
+export PATH=$PATH:`cd ./istio-*/bin/ && pwd`
