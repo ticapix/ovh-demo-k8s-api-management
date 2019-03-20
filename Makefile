@@ -5,6 +5,8 @@ NAME=$(shell basename $(ROOT_DIR))
 ECHO=@echo
 RM=rm -rf
 
+NOTEBOOKS=$(wildcard $(ROOT_DIR)/*.ipynb)
+
 .PHONY: help
 
 help:
@@ -20,4 +22,9 @@ $(VENV_DIR):
 install: $(VENV_DIR) ## install dependencies
 
 run: install  ## run
-	$(VENV_DIR)/bin/jupyter notebook API.ipynb
+	$(VENV_DIR)/bin/jupyter notebook ./API.ipynb
+
+%.clean: %.ipynb
+	$(VENV_DIR)/bin/jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace $<
+
+clean: $(NOTEBOOKS:.ipynb=.clean)
