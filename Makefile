@@ -28,3 +28,5 @@ run: install  ## run
 	$(VENV_DIR)/bin/jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace $<
 
 clean: $(NOTEBOOKS:.ipynb=.clean)
+	$(RM) config.*
+	$(RM) gravitee-kubernetes-master*
