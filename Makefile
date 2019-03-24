@@ -20,7 +20,8 @@ $(VENV_DIR):
 	$(VENV_DIR)/bin/python -m bash_kernel.install
 
 install: $(VENV_DIR) ## install dependencies
-
+	which curl || sudo apt-get install --no-install-recommends curl
+	
 run: install  ## run
 	$(VENV_DIR)/bin/jupyter notebook ./API.ipynb
 
