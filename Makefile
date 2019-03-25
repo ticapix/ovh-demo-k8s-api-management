@@ -23,7 +23,7 @@ install: $(VENV_DIR) ## install dependencies
 	which curl || sudo apt-get install --no-install-recommends curl
 	
 run: install  ## run
-	$(VENV_DIR)/bin/jupyter notebook $(ROOT_DIR)/main.ipynb
+	$(VENV_DIR)/bin/jupyter notebook $(ROOT_DIR)/index.ipynb
 
 %.clean: %.ipynb
 	$(VENV_DIR)/bin/jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace $<
@@ -35,6 +35,6 @@ clean: $(NOTEBOOKS:.ipynb=.clean)
 
 docs: $(NOTEBOOKS:.ipynb=.clean)
 	mkdir $(ROOT_DIR)/docs || true
-	$(VENV_DIR)/bin/jupyter nbconvert --to html --output-dir=docs $(ROOT_DIR)/*.ipynb
-	sed -i 's/\.ipynb/\.html/g' docs/*.html # hack to fix local links
-	
+	$(VENV_DIR)/bin/jupyter nbconvert --to markdown --output-dir=docs $(ROOT_DIR)/*.ipynb
+	sed -i 's/\.ipynb/\.html/g' docs/*.md # hack to fix link to other notebook
+	sed -i 's/docs\/images\//images\//g' docs/*.md # hack to fix links to images
