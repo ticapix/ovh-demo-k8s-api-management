@@ -23,7 +23,7 @@ install: $(VENV_DIR) ## install dependencies
 	which curl || sudo apt-get install --no-install-recommends curl
 	
 run: install  ## run
-	$(VENV_DIR)/bin/jupyter notebook ./API.ipynb
+	$(VENV_DIR)/bin/jupyter notebook ./main.ipynb
 
 %.clean: %.ipynb
 	$(VENV_DIR)/bin/jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace $<
