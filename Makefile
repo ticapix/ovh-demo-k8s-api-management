@@ -23,7 +23,7 @@ install: $(VENV_DIR) ## install dependencies
 	which curl || sudo apt-get install --no-install-recommends curl
 	
 run: install  ## run
-	$(VENV_DIR)/bin/jupyter notebook ./main.ipynb
+	$(VENV_DIR)/bin/jupyter notebook $(ROOT_DIR)/main.ipynb
 
 %.clean: %.ipynb
 	$(VENV_DIR)/bin/jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace $<
@@ -31,3 +31,10 @@ run: install  ## run
 clean: $(NOTEBOOKS:.ipynb=.clean)
 	$(RM) config.*
 	$(RM) gravitee-kubernetes-*
+	$(RM) docs
+
+docs: $(NOTEBOOKS:.ipynb=.clean)
+	mkdir $(ROOT_DIR)/docs || true
+	$(VENV_DIR)/bin/jupyter nbconvert --to html --output-dir=docs $(ROOT_DIR)/*.ipynb
+	sed -i 's/\.ipynb/\.html/g' docs/*.html # hack to fix local links
+	
