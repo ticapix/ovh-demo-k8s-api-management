@@ -30,4 +30,4 @@ run: install  ## run
 
 clean: $(NOTEBOOKS:.ipynb=.clean)
 	$(RM) config.*
-	$(RM) gravitee-kubernetes-master*
+	$(RM) gravitee-kubernetes-*
