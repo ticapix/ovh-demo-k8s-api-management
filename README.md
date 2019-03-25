@@ -1,6 +1,6 @@
 # OVH Managed Kubernetes use case: API Gateway deployment
 
-This repo contains notebooks which guide you with the deployment of Gravitee.io on a K8s cluster.
+This repo contains notebooks which guide you with the deployment of [Gravitee.io](https://gravitee.io/) on a [K8s cluster](https://www.ovh.com/fr/kubernetes/).
 
 To start, type `make run` and navigate the printed url
 
@@ -18,3 +18,6 @@ make run
     Or copy and paste one of these URLs:
         http://localhost:8888/?token=2f575e761b9647fd8426184e121401a5b37f347e1ef13d76
 ```
+
+
+The starting point is `main.ipynb`
