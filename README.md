@@ -4,7 +4,9 @@ This repo contains notebooks which guide you with the deployment of [Gravitee.io
 
 ## Online reading
 
-Here, inside [docs/](docs/)
+[Documentation](https://ticapix.github.io/ovh-demo-k8s-api-management/)
+
+(generated from `make docs`)
 
 ## Local reading with interractive shell
 
