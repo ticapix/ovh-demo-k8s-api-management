@@ -5,6 +5,9 @@
 
 In this guide, we'll be using Domain name, ACME protocole, Kubernetes, OVH API and few other products such as Elastic Search index, NOSQL database and Gravitee.io.
 
+![Overview](images/ovh-ecosystem.png)
+
+
 # Kubernetes setup
 
 [Setup](k8s.html#Kubernetes-setup) your local environment, add nodes and configure Helm.
@@ -82,6 +85,9 @@ kubectl describe secret apis.ovh-cert
 # Install Gravitee.io
 
 [gravitee.io](https://gravitee.io/) is an API manager. The setup is described [here](gravitee-setup.html)
+
+
+[![architecture](images/graviteeio-global-architecture.png)](https://docs.gravitee.io/apim_overview_architecture.html)
 
 
 # Install Linkerd
